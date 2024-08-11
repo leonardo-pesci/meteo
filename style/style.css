@@ -48,17 +48,23 @@ html {
     max-width: 560px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 15px;
+    gap: 16px;
+    padding: 16px;
     margin: 0 auto;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .card {
     width: 100%;
     text-align: center;
     background-color: var(--color-1);
-    padding: 20px;
-    border-radius: 20px;
+    padding: 16px;
+    border-radius: 16px;
 }
 
 
@@ -71,8 +77,9 @@ html {
 
 
 
-/* ^ Main */
-#mainBlock {
+/* ^ Info */
+#infoBlock {
+    min-height: 450px;
     display: flex;
     flex-direction: column;
 }
@@ -80,6 +87,10 @@ html {
 #location {
     font-size: 28px;
     text-transform: uppercase;
+}
+
+#weatherImg {
+    transition: opacity 0.5s, translate 1s;
 }
 
 #temperatureText {
@@ -90,6 +101,10 @@ html {
 
 
 /* ^ Suggestion */
+#suggestionBlock {
+    transition: scale 1s;
+}
+
 #suggestionText {
     font-size: 20px;
     font-weight: 600;
@@ -98,6 +113,13 @@ html {
 
 
 /* ^ Loading */
-.loading {
-    
+#loading {
+    #weatherImg {
+		opacity: 0;
+		translate: 0 30px;
+	}
+
+	#suggestionBlock {
+		scale: 0;
+	}
 }

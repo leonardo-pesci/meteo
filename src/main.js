@@ -1,5 +1,5 @@
 // ^ Elementi
-const html = document.documentElement
+const htmlElement = document.documentElement
 const locationText = document.querySelector('#location')
 const img = document.querySelector('#weatherImg')
 const temperatureText = document.querySelector('#temperatureText')
@@ -27,7 +27,7 @@ let suggestions = {
     '13n': 'Notte perfetta per stare sotto il piumone!',
     '50d': 'Accendi i fendinebbia!',
     '50n': 'Guida con prudenza!'
-  };
+};
   
 
 
@@ -40,8 +40,47 @@ let onError = () => {
     suggestionText.innerText = 'Attiva la geolocalizzazione'
   
     // Disattivare il loading
-    htmlElement.className = '';
-  }
+    htmlElement.id = '';
+}
+
+let onSuccess = async (position) => {
+    console.log(position)
+    let coords = position.coords
+    let lat = coords.latitude
+    let lng = coords.longitude
+
+    let key = 'bd832622acc99b03e95f5648052a97cf';
+    let units = 'metric';
+    let lang = 'it';
+
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}&units=${units}&lang=${lang}`
+
+    let response = await fetch(url)
+    let data = await response.json()
+    console.log(data)
+
+    let temperature = data.main.temp
+    let tempFloor = Math.floor(temperature)
+    let code = data.weather[0].icon
+    let description = data.weather[0].description
+    let name = data.name
+    let suggestion = suggestions[code]
+
+    showMeteo(name, code, description, tempFloor, suggestion)
+}
+
+let showMeteo = (name, code, description, temp, suggestion) => {
+    locationText.innerText = name
+    img.src = `./img/weather/${code}.png`
+    img.alt = description
+    temperatureText.innerText = temp + '°'
+    suggestionText.innerText = suggestion
+
+    htmlElement.id = ''
+}
+
+
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 
 
