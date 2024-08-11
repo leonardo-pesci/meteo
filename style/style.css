@@ -1,0 +1,96 @@
+/* ^ Start */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-text: #111111;
+    --color-bg: #4c64f2;
+    --color-1: #b8d3ff;
+}
+
+html {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    font-family: "Outfit", sans-serif;
+    font-size: 16px;
+}
+
+
+
+/* ^ Utilities */
+.hidden {
+    display: none;
+}
+
+.fitImg {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.pointer {
+    cursor: pointer
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* ^ General */
+#container {
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-1);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+
+
+/* ^ Header */
+#title {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+
+
+/* ^ Main */
+#mainBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+#location {
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+#temperature {
+    font-size: 90px;
+    font-weight: 500;
+}
+
+
+
+/* ^ Suggestion */
+#suggestionText {
+    font-size: 20px;
+    font-weight: 600;
+}
