@@ -82,7 +82,7 @@ html {
     text-transform: uppercase;
 }
 
-#temperature {
+#temperatureText {
     font-size: 90px;
     font-weight: 500;
 }
@@ -93,4 +93,11 @@ html {
 #suggestionText {
     font-size: 20px;
     font-weight: 600;
+}
+
+
+
+/* ^ Loading */
+.loading {
+    
 }
